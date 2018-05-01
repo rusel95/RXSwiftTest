@@ -1,19 +1,17 @@
 //: Playground - noun: a place where people can play
 
 import PlaygroundSupport
-
 PlaygroundPage.current.needsIndefiniteExecution = true
-
 import RxSwift
 
-example("just") { 
-    
-    let observable = Observable.just("Hello, RxSwift")
-    
-    observable.subscribe({ (event) in
-        print(event)
-    })
-}
+//example("just") {
+//
+//    let observable = Observable.just("Hello, RxSwift")
+//
+//    observable.subscribe({ (event) in
+//        print(event)
+//    })
+//}
 
 //
 //example("of") { 
