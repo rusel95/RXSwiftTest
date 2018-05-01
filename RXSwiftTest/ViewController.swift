@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     let textFieldText = Variable("")
+    let buttonSubject = PublishSubject<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,11 @@ class ViewController: UIViewController {
             print(#line, textFieldValue)
         }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
         
+        button.rx.tap.map { self.textFieldText.value }.bind(to: buttonSubject).addDisposableTo(disposeBag)
+    
+        buttonSubject.asObservable().subscribe(onNext: {
+            print($0)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
     }
 
 }
